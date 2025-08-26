@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LoanSimplify</title>
+    <script>
+      // Single-page app (SPA) fallback for GitHub Pages
+      const segmentCount = 0;
+      const l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+    <!-- Fallback content for users without JavaScript -->
+    <h1>LoanSimplify</h1>
+    <p>If you're seeing this, JavaScript failed to redirect. Please enable JavaScript or go to the <a href="/loansimplify/">home page</a>.</p>
+  </body>
+</html>
