@@ -1,0 +1,167 @@
+/* src/components/LoanForm/Loanform.css (replace or add) */
+
+:root{
+  --form-max-width: 820px; /* change this to make the box wider/narrower */
+  --bg: #ffffff;
+  --accent: #007bff;
+  --muted: #6b7280;
+  --radius: 12px;
+  --gap: 14px;
+}
+
+/* ensure consistent sizing */
+*, *::before, *::after { box-sizing: border-box; }
+
+.loan-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  min-height: 60vh;
+  background: transparent; /* keep parent bg as-is */
+}
+
+/* main card */
+.loan-form {
+  width: 100%;
+  max-width: var(--form-max-width);
+  background: var(--bg);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  overflow: hidden;
+}
+
+/* header */
+.loan-form__header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.loan-form__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+.loan-form__subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* grid layout for fields */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* Use .full to make a control span both columns */
+.full {
+  grid-column: 1 / -1;
+}
+
+/* individual controls */
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  color: #111827;
+  background: #fff;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(0,123,255,0.12);
+}
+
+/* file inputs - keep them visually small but usable */
+.upload-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.upload-row .photo-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px dashed #e6edf3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+.upload-row input[type="file"] {
+  flex: 1;
+  padding: 6px;
+}
+
+/* checkbox + link area */
+.terms-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.terms-row label { font-weight: 500; color: #374151; }
+
+/* buttons */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  color: #111827;
+}
+
+/* responsive rules */
+@media (max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .upload-row { flex-direction: column; align-items: stretch; }
+  .upload-row .photo-preview { width: 100%; height: 180px; }
+  .buttons { justify-content: center; }
+}
+
+@media (max-width: 420px) {
+  .loan-form { padding: 16px; }
+  .loan-form__title { font-size: 1.05rem; }
+}
